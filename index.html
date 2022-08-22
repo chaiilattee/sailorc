@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC>
+
+<!-- @NUCLEARTHEMES ON TUMBLR || PLEASE DON'T DELETE CREDIT -->
+
+<!-- 
+|| CREDITS ||
+
+Custom tooltip by Reinhard Schnetzinger >> https://codepen.io/reiinii1/pen/aPGXEa
+Links hover by Larry Geams Parangan >> https://codepen.io/larrygeams/pen/pdchG
+Fonts by Google
+Placeholders from Unsplash
+-->
+
+<html>
+ 
+<head>
+ 
+<title>{Name} / Chaii</title> <!-- add page title here -->
+
+<link rel="shortcut icon" href="{Favicon}">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i|Josefin+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style type="text/css">
+
+/* color settings for the sidebar links! */
+
+#linkhome {border-left: 7px solid #fa96a2; color: #fa96a2;}
+#linkhome:after {background-color: #FA96A2;}
+#linkhome:hover {color: #e5b9c6; transition: 0.4s;}
+
+#link1 {border-left: 7px solid #fba4a7; color: #fba4a7;}
+#link1:after {background-color: #fba4a7;}
+#link1:hover {color: #f4f4f4; transition: 0.4s;}
+
+#link2 {border-left: 7px solid #fbaeaa; color: #fbaeaa;}
+#link2:after {background-color: #fbaeaa;}
+#link2:hover {color: #f4f4f4; transition: 0.4s;}
+
+#link3 {border-left: 7px solid #fcbaae; color: #fcbaae;}
+#link3:after {background-color: #fcbaae;}
+#link3:hover {color: #f4f4f4; transition: 0.4s;}
+
+#link4 {border-left: 7px solid #fdc6b3; color: #fdc6b3;}
+#link4:after {background-color: #fdc6b3;}
+#link4:hover {color: #f4f4f4; transition: 0.4s;}
+
+#link5 {border-left: 7px solid #fed5b8; color: #fed5b8;}
+#link5:after {background-color: #FED5B8;}
+#link5:hover {color: #FED5B8; transition: 0.4s;}
+
+/* custom colors for selection */
+
+::-moz-selection {background: #fed5b8; color: #f0f0f0;}
+::selection {background: #fed5b8; color: #f0f0f0;}
+
+/* custom scrollbar */
+
+::-webkit-scrollbar-thumb {background: #fed5b8;}
+::-webkit-scrollbar {background: #f0f0f0; width: 5px;}
+
+* {margin:0; padding:0;}
+
+/* tooltip css */
+
+[data-tooltip] {
+    position: relative;
+    z-index: 10;
+}
+
+[data-tooltip]:before,[data-tooltip]:after {
+    bottom: 100%;
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: 0.4s;
+}
+
+[data-tooltip]:before {
+    background-color: #FED5B8;          /* tooltip background color */
+    content: attr(data-tooltip);
+    color: #ffffff;                     /* tooltip text color */
+    font-size: 14px;
+    padding: 10px 15px;
+    max-width: 300px;
+    min-width: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, -5px) scale(0.5);
+    width: max-content;
+}
+
+[data-tooltip]:hover:before, [data-tooltip]:hover:after {
+    opacity: 1;
+    transform: translate(-50%, 5px) scale(1);
+}
+
+/* basic body css */
+
+body {
+    background: #f0f0f0;                /* change background color */
+    color: #979797;                     /* change text color */
+    font-family: Josefin Sans;          /* change font */
+    font-size: 14px;                    /* change font size */
+    text-align: justify;
+}
+
+#container {
+    background: #f0f0f0;                /* change container background color */
+    height: 500px;
+    left: 50%;
+    margin-bottom: 40px;
+    overflow: auto;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 860px;
+    -ms-overflow-style: none;
+}
+
+#container::-webkit-scrollbar {
+    display: none;
+}
+
+/* text css */
+
+h1 {                                    /* page title */
+    color: #fcbaae;
+    font-family: Roboto Slab;
+    font-size: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+h2 {                                    /* section titles */
+    background-color: #fa96a2;
+    color: #f4f4f4;
+    display: block;
+    font-family: Roboto Slab;
+    font-size: 20px;
+    padding: 5px;
+    text-align: right;
+}
+
+a {
+    color: #fcbaae;                     /* link color */
+    text-decoration: none;
+}
+ 
+a:hover {
+    color: #000000;                     /* link hover color */
+    transition: 0.4s;
+}
+
+/* sidebar menu css */
+
+#sidemenu {
+    background-color: #f4f4f4;          /* links background color */
+    float: left;
+    height: 500px;
+    width: 200px;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    margin: 0;
+}
+
+img:hover {
+    cursor: cell;
+}
+
+.sidebarlinks a {
+    box-sizing: border-box;
+    display: block;
+    height: 50px;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    text-transform: normal;
+    width: 100%;
+    z-index: 2;
+}
+
+.sidebarlinks a:after {
+    content: "";
+    height: 100%;
+    left: -1;
+    position: absolute;
+    top: 0;
+    transition: 0.4s;
+    width: 0px;
+    z-index: -1;
+}
+
+.sidebarlinks a:hover:after {
+    width: calc(100% + 1px);
+}
+
+/* content css */
+
+#contentcontainer {                     /* invisible container for content */
+    float: right;
+    height: 440px;
+    overflow: auto;
+    width: 650px;
+    -ms-overflow-style: none;
+}
+
+#contentcontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.content {                              /* invisible container for text */
+    padding: 7px;
+}
+
+#facts {                                /* facts section */                      
+    background-color: #f4f4f4;
+    float: left;
+    height: 215px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    width: 340px;
+}
+
+#stats {                                /* stats section */
+    background-color: #f4f4f4;
+    float: left;
+    line-height: 24px;
+    height: 215px;
+    width: 340px;
+}
+
+#text {                                 /* large text section */
+    background-color: #f4f4f4;
+    float: right;
+    height: 440px;
+    line-height: 20px;
+    overflow-y: auto;
+    width: 300px;
+    -ms-overflow-style: none;
+}
+
+#text::-webkit-scrollbar {
+    display: none;
+}
+
+#left {                                 /* left column in sections */
+    border-right: 1px solid #fcbaae;
+    float: left;
+    font-weight: bold;
+    margin-right: 15px;
+    text-transform: normal;
+    width: 100px;
+}
+
+#right {                                /* right column in sections */
+    float: left;
+    text-transform: normal;
+}
+
+/* credit button css */
+
+#credit {
+    background-color: #fcbaae;
+    color: #f4f4f4;
+    bottom: 0;
+    display: inline;
+    margin: 8px;
+    padding: 8px;
+    position: fixed;
+    right: 0;
+}
+
+#credit:hover {
+    background-color: #fa96a2;
+    transition: 0.4s;
+}
+    
+</style>
+    
+</head>
+
+<body>
+
+<div id="container">
+
+    <!-- START SIDEBAR MENU -->
+
+    <div id="sidemenu">
+    
+        <!-- link goes in "a href"
+        hover text in "data-tooltip" 
+        image goes in "img src" -->
+
+        <a href="/" data-tooltip="in the name of the moon">
+            <img src="https://img.xatblog.net/image/xh4GJfSoW93.gif">
+        </a>
+    
+        <div class="sidebarlinks">
+            <a href="https://xat.com/animeandvamps" id="linkhome">Home</a>
+        </div>
+    
+        <div class="sidebarlinks">
+            <a href="https://xat.me/isaac" id="link1"> 🌸 Papa</a>
+        </div>
+    
+        <div class="sidebarlinks">
+            <a href="https://xat.me/unidentifiedash" id="link2">🌙 Ash</a>
+        </div>
+    
+        <div class="sidebarlinks">
+            <a href="https://xat.me/xRaidSendo" id="link3">🌙 Raid</a>
+        </div>
+    
+        <div class="sidebarlinks">
+            <a href="https://xat.me/lariatoooo" id="link4">🌙 Angel</a>
+        </div>
+    
+        <div class="sidebarlinks">
+            <a href="https://xat.me/YuukiNanase" id="link5">🌙 Nana</a>
+        </div>
+    
+    </div>
+
+    <!-- END SIDEBAR MENU -->
+    
+    <h1>ପ૮๑ᵔ ᵕ ᵔ๑ აଓ</h1> <!-- page title -->
+    
+    <div id="contentcontainer">
+    
+        <!-- START SECTION 1 -->
+    
+        <div id="facts">
+        
+            <h2>facts</h2>
+            
+            <div class="content">
+                
+                <div id="left">
+                    Name
+                    <br>
+                    Birthday
+                    <br>
+                    Location
+                    <br>
+                    Gender
+                    <br>
+                    Pronouns
+                    <br>
+                    Currently
+                    <br>
+                    Always
+                </div>
+                
+                <div id="right">
+                    Chaii
+                    <br>
+                    August 16th
+                    <br>
+                    Chicago,IL
+                    <br>
+                    ♀
+                    <br>
+                    She/Her
+                    <br>
+                    a magical girl 
+                    <br>
+                    snacking.sleeping.working
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- END SECTION 1 -->
+        
+        <!-- START SECTION 2 -->
+        
+        <div id="text">
+        
+            <h2>🍡🌸🐰🍥🍰🍧🍓</h2>
+            
+            <div class="content">
+                
+How sweet of you to visit my profile. I'm more of a nightowl that gets busy w/ work or i'm lost in a show. There's plenty of time to get to know one another so please vist my home button. I enjoy learning new things! Music, Anime, Manga, and of course your interest. PC me sometime..
+
+<br><br>
+
+⠀｡ﾟ•┈୨♡୧┈• ｡ﾟ｡ﾟ•┈୨♡୧┈• ｡ﾟ｡ﾟ•┈୨♡୧┈• ｡ﾟ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+<br><br>
+
+ “Holding you close, and giving you kisses aren’t the only symbols of love. Watching over someone from afar is a kind of love, too.” – Sailor Pluto
+
+<br><br>
+
+“Who wants that? I’d rather choose to fall in love and be hurt. Sometimes I can’t even sleep because I love someone too much. And there’s always sadness in our lives. It’s that sad feeling that keeps us going.” — Usagi Tsukino
+     
+      <br><br>
+              
+ “Even when we disappear and new Sailor Senshis are born, Sailor Moon, you will always be invincible. The most beautiful shining star.” – Tuxedo Mask             
+            </div>
+            
+        </div>
+        
+        <!-- END SECTION 2 -->
+        
+        <!-- START SECTION 3 -->
+        
+        <div id="stats">
+        
+            <h2>stats</h2>
+            
+            <div class="content">
+                
+                <div id="left">
+                    Health
+                    <br>
+                    Attack 
+                    <br>
+                    Defense
+                    <br>
+                    Luck
+                    <br>
+                    Charisma
+                    <br>
+                    Beauty 
+                    <br>
+                    Memory
+                </div>
+                
+                <div id="right">
+                
+                    <!-- for stars instead of hearts: "fa fa-star" -->
+                    
+                    <!-- START STAT 1 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 1 -->
+                    
+                    <br>
+                    
+                    <!-- START STAT 2 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 2 -->
+                    
+                    <br>
+                    
+                    <!-- START STAT 3 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 3 -->
+                    
+                    <br>
+                    
+                    <!-- START STAT 4 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 4 -->
+                    
+                    <br>
+                    
+                    <!-- START STAT 5 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 5 -->
+                    
+                    <br>
+                    
+                    <!-- START STAT 6 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 6 -->
+                    
+                    <br>
+                    
+                    <!-- START STAT 7 -->
+                    
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    <i class="fa fa-heart-o" style="font-size:15px"></i>
+                    
+                    <!-- END STAT 7 -->
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- END SECTION 3 -->
+        
+    </div>
+    
+</div>
+
+<!-- don't edit beyond this point please! colors can be modified in <style> -->
+
+<a id="credit" target="blank" href="https://nuclearthemes.tumblr.com/"><i class="fa fa-anchor" style="font-size:15px"></i></a>
+
+</body>
+
+</html>
