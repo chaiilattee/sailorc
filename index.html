@@ -4,289 +4,257 @@
 
 <!-- 
 || CREDITS ||
-
-Custom tooltip by Reinhard Schnetzinger >> https://codepen.io/reiinii1/pen/aPGXEa
-Links hover by Larry Geams Parangan >> https://codepen.io/larrygeams/pen/pdchG
-Fonts by Google
-Placeholders from Unsplash
+Custom tooltips by Atomiks >> https://atomiks.github.io/tippyjs/
+Fonts from Google >> https://fonts.google.com/
+Placeholders from Unsplash >> https://unsplash.com/
 -->
 
 <html>
  
 <head>
  
-<title>{Name} / Chaii</title> <!-- add page title here -->
+<title>{squeezeme;don't teaseme} / title</title> <!-- page title -->
+
 
 <link rel="shortcut icon" href="{Favicon}">
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i|Josefin+Sans:400,400i,700,700i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i|Covered+By+Your+Grace:400,400i,700,700i|Lora:400,400i,700,700i" rel="stylesheet">
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <style type="text/css">
 
-/* color settings for the sidebar links! */
+/* ----------------------------------------------------------------------- */
+/* --------------------------- custom tooltips --------------------------- */
 
-#linkhome {border-left: 7px solid #3c1361; color: #f9f9f9;}
-#linkhome:after {background-color: #3c1361;}
-#linkhome:hover {color: #c5a9d1; transition: 0.4s;}
+.tippy-tooltip.custom-theme {
+    background-color: #ffffff;
+    border-radius: 0px;
+    color: #fc5577;
+    font-family: inherit;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-#link1 {border-left: 7px solid #52307c; color: #ffffff;}
-#link1:after {background-color: #52307c;}
-#link1:hover {color: #c5a9d1; transition: 0.4s;}
+/* ----------------------------------------------------------------------- */
+/* -------------------- custom selection & scrollbar --------------------- */
 
-#link2 {border-left: 7px solid #663a82; color: #ffffff;}
-#link2:after {background-color: #663a82;}
-#link2:hover {color: #282f57; transition: 0.4s;}
+::-moz-selection {background: #fc5577; color: #fc5577;}
+::selection {background: #fc5577; color: #fc5577;}
 
-#link3 {border-left: 7px solid #7c5295; color: #ffffff;}
-#link3:after {background-color: #7c5295;}
-#link3:hover {color: #282f57; transition: 0.4s;}
-
-#link4 {border-left: 7px solid #b491c8
-; color: #ffffff;}
-#link4:after {background-color: #b491c8
-;}
-#link4:hover {color: #282f57; transition: 0.4s;}
-
-#link5 {border-left: 7px solid #bca0dc
-; color: #ffffff;}
-#link5:after {background-color: #bca0dc
-;}
-#link5:hover {color: #282f57; transition: 0.4s;}
-
-/* custom colors for selection */
-
-::-moz-selection {background: #b49cbf; color: #f0f0f0;}
-::selection {background: #ed5436; color: #f0f0f0;}
-
-/* custom scrollbar */
-
-::-webkit-scrollbar-thumb {background: #020202;}
-::-webkit-scrollbar {background: #ffffff; width: 5px;}
+::-webkit-scrollbar-thumb {background: #fc5577;}
+::-webkit-scrollbar {background: #fc5577; width: 5px;}
 
 * {margin:0; padding:0;}
 
-/* tooltip css */
-
-[data-tooltip] {
-    position: relative;
-    z-index: 10;
-}
-
-[data-tooltip]:before,[data-tooltip]:after {
-    bottom: 100%;
-    left: 50%;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    transition: 0.4s;
-}
-
-[data-tooltip]:before {
-    background-color: #c5a9d1;          /* tooltip background color */
-    content: attr(data-tooltip);
-    color: #ffffff;                     /* tooltip text color */
-    font-size: 14px;
-    padding: 10px 15px;
-    max-width: 300px;
-    min-width: 50px;
-    text-align: center;
-    text-transform: normal;
-    transform: translate(-50%, -5px) scale(0.5);
-    width: max-content;
-}
-
-[data-tooltip]:hover:before, [data-tooltip]:hover:after {
-    opacity: 1;
-    transform: translate(-50%, 5px) scale(1);
-}
-
-/* basic body css */
+/* ----------------------------------------------------------------------- */
+/* ---------------------------- large blocks ----------------------------- */
 
 body {
-    background: #C5A9D1;                /* change background color */
-    color: #f4f4f4;                     /* change text color */
-    font-family: Josefin Sans;          /* change font */
-    font-size: 14px;                    /* change font size */
-    text-align: justify;
+    background: #DA2B4E;                /* background color */
+    color: #873646;                     /* text color */
+    font-family: Fira Sans;             /* font */
+    font-size: 14px;                    /* font size */
+    text-align: justify;                /* text align */
 }
 
 #container {
-    background: #C5A9D1;                /* change container background color */
-    height: 500px;
+    background: #F1D9FA;                /* container background color */
+    height: 550px;
     left: 50%;
     margin-bottom: 40px;
-    overflow: auto;
-    padding: 20px;
+    overflow: none;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 860px;
-    -ms-overflow-style: none;
+    width: 700px;
 }
 
-#container::-webkit-scrollbar {
-    display: none;
+#header {                               /* 700 x 180 */
+    background-color: #DA2B4E;
+    height: 180px;
+    width: 700px;
 }
 
-/* text css */
-
-h1 {                                    /* page title */
-    color: #282F57;
-    font-family: Roboto Slab;
-    font-size: 30px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    text-align: right;
+#content {                              /* container content below header */
+    height: 290px;
+    margin-top: 40px;
+    overflow: none;
+    padding: 20px;
+    width: 660px;
 }
 
-h2 {                                    /* section titles */
-    background-color: #8389aa;
-    color: #282F57;
-    display: block;
-    font-family: Roboto Slab;
-    font-size: 20px;
-    padding: 5px;
-    text-align: right;
+/* ----------------------------------------------------------------------- */
+/* -------------------------------- text --------------------------------- */
+
+h1 {                                    /* main title */
+    color: #DA2B4E;
+    font-family: Covered By Your Grace;
+    font-size: 2.5em;
+    font-style: cursive;
+    font-weight: bold;
+    position: fixed;
+    right: 2%;
+    top: 33%;
+    z-index: 999;
+}
+
+h2 {                                    /* block titles */
+    background-color: #DA2B4E;
+    color: #ffffff;
+    font-family: Lora;
+    font-size: 1.2em;
+    font-weight: normal;
+    padding: 10px;
+    text-align: center;
+    width: 252px;
 }
 
 a {
-    color: #C5A9D1;                     /* link color */
+    color: #fc5577;                     /* link color */
     text-decoration: none;
 }
- 
-a:hover {
-    color: #000000;                     /* link hover color */
+
+a:hover {   
+    color: #010101;                     /* link hover color */
     transition: 0.4s;
 }
 
-/* sidebar menu css */
-
-#sidemenu {
-    background-color: #C5A9D1;          /* links background color */
-    float: left;
-    height: 500px;
-    width: 200px;
+b {                                     /* bold text */
+    color: #fc5577;
 }
 
-img {
-    height: 200px;
-    width: 200px;
-    margin: 0;
+i {                                     /* italic text */
+    color: #c196e0;
 }
 
-img:hover {
+/* ----------------------------------------------------------------------- */
+/* --------------------------- layout content ---------------------------- */
+
+#picture {                              /* icon */
+    border-radius: 100%;
+    left: 43%;
+    position: fixed;
+    top: 23%;
+    width: 100px;
+    z-index: 999;
+}
+
+#picture:hover {                        /* icon hover */
     cursor: cell;
-}
-
-.sidebarlinks a {
-    box-sizing: border-box;
-    display: block;
-    height: 50px;
-    margin: 0;
-    padding: 20px;
-    position: relative;
-    text-transform: normal;
-    width: 100%;
-    z-index: 2;
-}
-
-.sidebarlinks a:after {
-    content: "";
-    height: 100%;
-    left: -1;
-    position: absolute;
-    top: 0;
+    transform: scale(1.1);
     transition: 0.4s;
-    width: 0px;
-    z-index: -1;
+    -webkit-filter: contrast(110%);
 }
 
-.sidebarlinks a:hover:after {
-    width: calc(100% + 1px);
-}
-
-/* content css */
-
-#contentcontainer {                     /* invisible container for content */
-    float: right;
-    height: 440px;
-    overflow: auto;
-    width: 650px;
-    -ms-overflow-style: none;
-}
-
-#contentcontainer::-webkit-scrollbar {
-    display: none;
-}
-
-.content {                              /* invisible container for text */
-    padding: 7px;
-}
-
-#facts {                                /* facts section */                      
-    background-color: #4e3a56;
+#leftblock {                            /* container for left content */
     float: left;
-    height: 215px;
-    line-height: 24px;
-    margin-bottom: 10px;
-    width: 340px;
+    height: 290px;
+    width: 270px;
 }
 
-#stats {                                /* stats section */
-    background-color: #4e3a56;
-    float: left;
-    line-height: 24px;
-    height: 215px;
-    width: 340px;
-}
-
-#text {                                 /* large text section */
-    background-color: #4e3a56;
+#rightblock {                           /* container for right content */
     float: right;
-    height: 440px;
-    line-height: 20px;
-    overflow-y: auto;
-    width: 300px;
-    -ms-overflow-style: none;
+    height: 290px;
+    width: 270px;
 }
 
-#text::-webkit-scrollbar {
-    display: none;
+.borderblock {                          /* bordered blocks of content */
+    border: 1px solid #DA2B4E;
+    border-top: none;
+    height: 225px;
+    padding: 10px;
+    width: 250px;
 }
 
-#left {                                 /* left column in sections */
-    border-right: 1px solid #c5a9d1;
+#aesthetic {                            /* container for middle colors */
+    float: left;
+    height: 288px;
+    margin-left: 23px;
+    width: 72px;
+}
+
+/* ----------------------------------------------------------------------- */
+/* ------------------------------- content ------------------------------- */
+
+.colors {                               /* color blocks */
+    background: blue;
+    height: 72px;
+    width: 72px;
+}
+
+/* change colors here! :D */
+
+#color1 {background-color:#DA2B4E;}
+#color2 {background-color:#f43d61;}
+#color3 {background-color:#ff5977;}
+#color4 {background-color:#f9899c;}
+
+#left {                                 /* left column */
+    border-right: 1px solid #fc5577;
     float: left;
     font-weight: bold;
-    margin-right: 15px;
-    text-transform: normal;
-    width: 100px;
+    height: 120px;
+    line-height: 20px;
+    margin-right: 20px;
+    padding-right: 20px;
+    text-transform: uppercase;
+    width: 104px;
 }
 
-#right {                                /* right column in sections */
+#right {                                /* right column */
     float: left;
-    text-transform: normal;
+    height: 120px;
+    line-height: 20px;
+    width: 105px;
 }
 
-/* credit button css */
+#bio {                                  /* bio container */
+    float: left;
+    height: 90px;
+    margin-top: 15px;
+    overflow: auto;
+    width: 250px;
+    -ms-overflow-style: none;
+}
+
+#bio::-webkit-scrollbar {
+    display: none;
+}
+
+.links {                                /* links in right block */
+    background-color: #DA2B4E;
+    color: #ffc4d0;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.links:hover {                          /* hover links */
+    background-color: #fc5577;
+    color: #ffffff;
+    transition: 0.4s;
+}
+
+/* ----------------------------------------------------------------------- */
+/* ------------------------------- credits ------------------------------- */
 
 #credit {
-    background-color: #020202;
-    color: #f4f4f4;
+    color: #ffffff;
     bottom: 0;
     display: inline;
-    margin: 8px;
-    padding: 8px;
+    font-style: italic;
+    margin: 10px;
     position: fixed;
     right: 0;
 }
 
 #credit:hover {
-    background-color: #fa96a2;
+    color: #DA2B4E;
     transition: 0.4s;
 }
+
+/* ----------------------------------------------------------------------- */
     
 </style>
     
@@ -294,291 +262,219 @@ img:hover {
 
 <body>
 
+<!--------------------------- START MAIN CONTENT---------------------------->
+
 <div id="container">
 
-    <!-- START SIDEBAR MENU -->
+    <!-- header image -->
 
-    <div id="sidemenu">
+    <img id="header" src="https://xatimg.com/image/GWBGEm6BkDzg.gif">
     
-        <!-- link goes in "a href"
-        hover text in "data-tooltip" 
-        image goes in "img src" -->
-
-        <a href="/" data-tooltip=" Hakka no Togame">
-            <img src="https://xatimg.com/image/qYOR5xgm6unK.png">
-        </a>
+    <!-- main title -->
     
-        <div class="sidebarlinks">
-            <a href="https://xat.com/animeandvamps" id="linkhome">🏠 Home</a>
-        </div>
+    <h1>ʚ Chai ɞ</h1>
     
-        <div class="sidebarlinks">
-            <a href="https://xat.me/isaac" id="link1"> 🤍 Isaac</a>
-        </div>
+    <!-- icon image -->
     
-        <div class="sidebarlinks">
-            <a href="https://xat.me/unidentifiedash" id="link2">🍥 Ash</a>
-        </div>
+    <a href="/">
+        <img id="picture" title="{cry baby}" src="https://xatimg.com/image/KXi7Aof83lqJ.jpg">
+    </a>
     
-        <div class="sidebarlinks">
-            <a href="https://xat.me/xRaidSendo" id="link3">🍥 Raid</a>
-        </div>
+    <!-- START CONTENT -->
     
-        <div class="sidebarlinks">
-            <a href="https://xat.me/lariatoooo" id="link4">🍥 Angel</a>
-        </div>
+    <div id="content">
     
-        <div class="sidebarlinks">
-            <a href="https://xat.me/Ecchi" id="link5">🍥 Nana</a>
-        </div>
+        <!-- start left block -->
     
-    </div>
-
-    <!-- END SIDEBAR MENU -->
-    
-    <h1> –  ❐  ✕</h1> <!-- page title -->
-    
-    <div id="contentcontainer">
-    
-        <!-- START SECTION 1 -->
-    
-        <div id="facts">
-        
-            <h2>⠂⠂𝑭𝒂𝒄𝒕𝒔⠂⠂</h2>
+        <div id="leftblock">
             
-            <div class="content">
+            <!-- left block title -->
+            
+            <h2>✧ magical girl at heart。</h2>
+            
+            <!-- start left content -->
+        
+            <div class="borderblock">
+                
+                <!-- left column -->
                 
                 <div id="left">
-                    Name
+                    name
                     <br>
-                    Birthday
+                    birthday
                     <br>
-                    Location
+                    gender
                     <br>
-                    Gender
+                    pronouns
                     <br>
-                    Pronouns
+                    curently
                     <br>
-                    Currently
-                    <br>
-                    Always
+                    zodiac
                 </div>
+                
+                <!-- right column -->
                 
                 <div id="right">
-                    Chaii
+                    chai
                     <br>
-                    August 16th
+                    8/16
                     <br>
-                    Chicago,IL
+                    female
                     <br>
-                    ♀
+                    she/her
                     <br>
-                    She/Her
+                    not interested
                     <br>
-                    a magical girl 
-                    <br>
-                    snacking.sleeping.working
+                    leo
+                </div>
+                
+                <!-- bio -->
+                
+                <div id="bio">
+
+Love sounds better written in a shoujo manga. Being online is a drag.
+
                 </div>
                 
             </div>
             
+            <!-- end left content -->
+        
         </div>
         
-        <!-- END SECTION 1 -->
+        <!-- end left block -->
         
-        <!-- START SECTION 2 -->
+        <!-- start color block -->
         
-        <div id="text">
-        
-            <h2>🔮🫧🌠💟🐇</h2>
+        <div id="aesthetic">
             
-            <div class="content">
- 
-   <br><br>
-              
-              Welcome to my profile cutie. Don't be afraid to message me. My interest aren't a mystery, but I'd enjoy learning about yours' anytime! Music / Anime / Manga / Food / Movies / Shows .. The list goes on babes so lets get to know one another ! xoxo
-
-<br><br>
-
-・┆✦ʚ♡ɞ✦ ┆・૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა・┆✦ʚ♡ɞ✦ ┆・⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-<br><br>
-
-"We are taught never to shed tears. For to shed tears means that the body has been defeated by emotion. And to us, this simple act of crying proves, without question, that the existence of emotion is nothing but a burden." – Rukia Kuchiki
-
-<br><br>
-
-“Who wants that? I’d rather choose to fall in love and be hurt. Sometimes I can’t even sleep because I love someone too much. And there’s always sadness in our lives. It’s that sad feeling that keeps us going.” — Usagi Tsukino
-     
-      <br><br>
-              
- “Even when we disappear and new Sailor Senshis are born, Sailor Moon, you will always be invincible. The most beautiful shining star.” – Tuxedo Mask             
+            <div class="colors" id="color1"></div>
+            <div class="colors" id="color2"></div>
+            <div class="colors" id="color3"></div>
+            <div class="colors" id="color4"></div>
+            
+        </div>
+        
+        <!-- end color block -->
+        
+        <!-- start right block -->
+        
+        <div id="rightblock">
+        
+            <!-- right block title -->
+            
+            <h2>  .•°♡°•.</h2>
+            
+            <!-- start right content -->
+            
+            <div class="borderblock">
+                
+                <a href="" title="in the">
+                    <div class="links">
+                        fighting
+                    </div>
+                </a>
+                
+                <a href="" title="name of the">
+                    <div class="links">
+                        evil by
+                    </div>
+                </a>
+                
+                <a href="" title="moon!">
+                    <div class="links">
+                        moonlight
+                    </div>
+                </a>
+                
+                <a href="https://xat.me/Isaac" title="Isaac">
+                    <div class="links">
+                        winning love ♡ 
+                    </div>
+                </a>
+                
+                <a href="https://xat.me/Ecchi" title="Nana">
+                    <div class="links">
+                          by daylight ☼
+                    </div>
+                </a>
+                
+                <a href="https://xat.me/xRaidSendo" title="Raid">
+                    <div class="links">
+                        NEVER running from
+                    </div>
+                </a>
+                
+                <a href="https://xat.me/UnidentifiedAsh" title="Ash">
+                    <div class="links">
+                         a real fight!
+                    </div>
+                </a>
+                
+                <a href="https://xat.com/ecchi" title=" ପ૮{˶• ༝ •˶}აଓ">
+                    <div class="links">
+                        she is the one
+                    </div>
+                </a>
+                
+                <a href="" title="୨୧° ♡ °୨୧">
+                    <div class="links">
+                          𓆩♡𓆪 Sailormoon!
+                    </div>
+                </a>
+                
+                <a href="" title="˗ˋˏ°•୨❤୧•°ˎˊ˗">
+                    <div class="links">
+                           ପ(๑•ᴗ•๑)ଓ ♡
+                    </div>
+                </a>
+                
+                <a href="" title="(๑>؂•̀๑)">
+                    <div class="links">
+                        ⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙⋆♡
+                 </div>
+                 </a>
             </div>
             
-        </div>
-        
-        <!-- END SECTION 2 -->
-        
-        <!-- START SECTION 3 -->
-        
-        <div id="stats">
-        
-            <h2>⠂⠂𝑺𝒕𝒂𝒕𝒔⠂⠂</h2>
-            
-            <div class="content">
-                
-                <div id="left">
-                    Health
-                    <br>
-                    Attack 
-                    <br>
-                    Defense
-                    <br>
-                    Luck
-                    <br>
-                    Charisma
-                    <br>
-                    Beauty 
-                    <br>
-                    Memory
-                </div>
-                
-                <div id="right">
-                
-                    <!-- for stars instead of hearts: "fa fa-star" -->
-                    
-                    <!-- START STAT 1 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 1 -->
-                    
-                    <br>
-                    
-                    <!-- START STAT 2 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 2 -->
-                    
-                    <br>
-                    
-                    <!-- START STAT 3 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 3 -->
-                    
-                    <br>
-                    
-                    <!-- START STAT 4 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 4 -->
-                    
-                    <br>
-                    
-                    <!-- START STAT 5 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 5 -->
-                    
-                    <br>
-                    
-                    <!-- START STAT 6 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 6 -->
-                    
-                    <br>
-                    
-                    <!-- START STAT 7 -->
-                    
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    <i class="fa fa-heart-o" style="font-size:15px"></i>
-                    
-                    <!-- END STAT 7 -->
-                    
-                </div>
-                
-            </div>
+            <!-- end right content -->
             
         </div>
         
-        <!-- END SECTION 3 -->
-        
+        <!-- end right block -->
+    
     </div>
+    
+    <!-- END CONTENT -->
     
 </div>
 
+<!---------------------------- END MAIN CONTENT----------------------------->
+
 <!-- don't edit beyond this point please! colors can be modified in <style> -->
 
-<a id="credit" target="blank" href="https://nuclearthemes.tumblr.com/"><i class="fa fa-anchor" style="font-size:15px"></i></a>
+<a id="credit" target="blank" href="https://nuclearthemes.tumblr.com/">
+    page theme by bones.
+</a>
+
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+
+<script>
+    tippy('[title]', {
+        theme: 'custom',
+        arrow: false,
+        delay: [200, 0],
+        zIndex: 9999999999,
+        maxWidth: 300,
+
+        content(reference) {
+            const title = reference.getAttribute('title');
+            reference.removeAttribute('title');
+            return title;
+        },
+    });
+</script>
 
 </body>
 
