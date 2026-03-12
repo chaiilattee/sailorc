@@ -1,481 +1,306 @@
-<!DOCTYPE html PUBLIC>
-
-<!-- @NUCLEARTHEMES ON TUMBLR || PLEASE DON'T DELETE CREDIT -->
-
-<!-- 
-|| CREDITS ||
-Custom tooltips by Atomiks >> https://atomiks.github.io/tippyjs/
-Fonts from Google >> https://fonts.google.com/
-Placeholders from Unsplash >> https://unsplash.com/
--->
-
-<html>
- 
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<title>About Me</title>
+  
+<!-- SATISFY FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  
+<style>
+
+/* CHANGE DESKTOP BACKGROUND HERE */
+:root{
+    --desktop-bg: url("https://xatimg.com/image/dapYtfz5t99n.gif");
+}
+
+body{
+    margin:0;
+    padding:0;
+    background-image: var(--desktop-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Lucida Grande", Tahoma, sans-serif;
+}
+
+/* Desktop */
+
+.desktop{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* Window */
+
+.window{
+    width:700px;
+    border-radius:10px;
+    background:#e8e8e8;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    border:1px solid #888;
+    overflow:hidden;
+}
+
+/* Title bar */
+
+.titlebar{
+    height:28px;
+    background:linear-gradient(#e9f1fb,#b7c7db);
+    display:flex;
+    align-items:center;
+    padding:0 10px;
+    border-bottom:1px solid #8a9db5;
+    position:relative;
+}
+
+/* glossy highlight */
+
+.titlebar::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:50%;
+    background:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0));
+    pointer-events:none;
+}
+
+.buttons{
+    display:flex;
+    gap:6px;
+    margin-right:10px;
+}
+
+.btn{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{ background:#ff5f57; }
+.yellow{ background:#ffbd2e; }
+.green{ background:#28c840; }
+
+.title{
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* Layout */
+
+.content{
+    display:flex;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:200px;
+    background:#d4d4d4;
+    border-right:1px solid #aaa;
+    padding:15px;
+}
+
+.sidebar h3{
+    margin-top:0;
+    font-size:14px;
+}
+
+/* Sidebar links with icons */
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:#333;
+    margin:8px 0;
+    font-size:13px;
+    transition: color 0.25s ease;
+}
+
+/* Hover effect */
+
+.sidebar a:hover{
+    color:#3b7cff;
+}
+
+.sidebar img{
+    width:18px;
+    height:18px;
+    transition:transform 0.2s ease;
+}
+
+.sidebar a:hover img{
+    transform:scale(1.1);
+}
+
+/* Main content */
+
+.main{
+    flex:1;
+    padding:20px;
+    background:#f5f5f5;
+}
+
+/* Profile layout */
+
+.profile{
+    display:flex;
+    gap:15px;
+}
+
+.profile img{
+    width:90px;
+    border-radius:6px;
+}
+
+ /* BIG NAME TRICK */
+
+.name{
+    font-family:"Satisfy", cursive;
+    font-size:42px;
+    margin:0;
+    color:#66CBFF;
+}
+  
+/* online indicator */
+
+.online{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+    color:#2ecc71;
+    margin-top:3px;
+    font-weight:bold;
+}
+
+/* green status dot */
+
+.statusdot{
+    width:8px;
+    height:8px;
+    background:#2ecc71;
+    border-radius:50%;
+    box-shadow:0 0 6px #2ecc71;
+}
+  
+.abouttext{
+    font-family:"Patrick Hand", cursive;
+    font-size:18px;
+    text-align:center;
+    color:#444;
+    line-height:1.5;
+}
  
-<title>{squeezeme;don't teaseme} / title</title> <!-- page title -->
-
-
-<link rel="shortcut icon" href="{Favicon}">
-
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i|Covered+By+Your+Grace:400,400i,700,700i|Lora:400,400i,700,700i" rel="stylesheet">
-
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
-<style type="text/css">
-
-/* ----------------------------------------------------------------------- */
-/* --------------------------- custom tooltips --------------------------- */
-
-.tippy-tooltip.custom-theme {
-    background-color: #ffffff;
-    border-radius: 0px;
-    color: #6A94AB;
-    font-family: inherit;
-    margin-bottom: 10px;
-    text-align: center;
+.footer{
+    text-align:center;
+    font-size:11px;
+    color:#333;
+    padding:8px;
 }
-
-/* ----------------------------------------------------------------------- */
-/* -------------------- custom selection & scrollbar --------------------- */
-
-::-moz-selection {background: #6A94AB; color: #6A94AB;}
-::selection {background: #6A94AB; color: #6A94AB;}
-
-::-webkit-scrollbar-thumb {background: #DBF1F4;}
-::-webkit-scrollbar {background: #DBF1F4; width: 5px;}
-
-* {margin:0; padding:0;}
-
-/* ----------------------------------------------------------------------- */
-/* ---------------------------- large blocks ----------------------------- */
-
-body {
-    background: #6A94AB;                /* background color */
-    color: #6A94AB;                     /* text color */
-    font-family: Fira Sans;             /* font */
-    font-size: 14px;                    /* font size */
-    text-align: justify;                /* text align */
-}
-
-#container {
-    background: #DBF1F4;                /* container background color */
-    height: 550px;
-    left: 50%;
-    margin-bottom: 40px;
-    overflow: none;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 700px;
-}
-
-#header {                               /* 700 x 180 */
-    background-color: #6A94AB;
-    height: 180px;
-    width: 700px;
-}
-
-#content {                              /* container content below header */
-    height: 290px;
-    margin-top: 40px;
-    overflow: none;
-    padding: 20px;
-    width: 660px;
-}
-
-/* ----------------------------------------------------------------------- */
-/* -------------------------------- text --------------------------------- */
-
-h1 {                                    /* main title */
-    color: #6A94AB;
-    font-family: Covered By Your Grace;
-    font-size: 2.5em;
-    font-style: cursive;
-    font-weight: bold;
-    position: fixed;
-    right: 2%;
-    top: 33%;
-    z-index: 999;
-}
-
-h2 {                                    /* block titles */
-    background-color: #6a94ab;
-    color: #ffffff;
-    font-family: Lora;
-    font-size: 1.2em;
-    font-weight: normal;
-    padding: 10px;
-    text-align: center;
-    width: 252px;
-}
-
-a {
-    color: #6a94ab;                     /* link color */
-    text-decoration: none;
-}
-
-a:hover {   
-    color: #6A94AB;                     /* link hover color */
-    transition: 0.4s;
-}
-
-b {                                     /* bold text */
-    color: #6A94AB;
-}
-
-i {                                     /* italic text */
-    color: #6A94AB;
-}
-
-/* ----------------------------------------------------------------------- */
-/* --------------------------- layout content ---------------------------- */
-
-#picture {                              /* icon */
-    border-radius: 100%;
-    left: 43%;
-    position: fixed;
-    top: 23%;
-    width: 100px;
-    z-index: 999;
-}
-
-#picture:hover {                        /* icon hover */
-    cursor: cell;
-    transform: scale(1.1);
-    transition: 0.4s;
-    -webkit-filter: contrast(110%);
-}
-
-#leftblock {                            /* container for left content */
-    float: left;
-    height: 290px;
-    width: 270px;
-}
-
-#rightblock {                           /* container for right content */
-    float: right;
-    height: 290px;
-    width: 270px;
-}
-
-.borderblock {                          /* bordered blocks of content */
-    border: 1px solid #6a94ab;
-    border-top: none;
-    height: 225px;
-    padding: 10px;
-    width: 250px;
-}
-
-#aesthetic {                            /* container for middle colors */
-    float: left;
-    height: 288px;
-    margin-left: 23px;
-    width: 72px;
-}
-
-/* ----------------------------------------------------------------------- */
-/* ------------------------------- content ------------------------------- */
-
-.colors {                               /* color blocks */
-    background: blue;
-    height: 72px;
-    width: 72px;
-}
-
-/* change colors here! :D */
-
-#color1 {background-color:#6a94ab;}
-#color2 {background-color:#78a6bf;}
-#color3 {background-color:#90c1db;}
-#color4 {background-color:#b1d9ef;}
-
-#left {                                 /* left column */
-    border-right: 1px solid #6a94ab;
-    float: left;
-    font-weight: bold;
-    height: 120px;
-    line-height: 20px;
-    margin-right: 20px;
-    padding-right: 20px;
-    text-transform: uppercase;
-    width: 104px;
-}
-
-#right {                                /* right column */
-    float: left;
-    height: 120px;
-    line-height: 20px;
-    width: 105px;
-}
-
-#bio {                                  /* bio container */
-    float: left;
-    height: 90px;
-    margin-top: 15px;
-    overflow: auto;
-    width: 250px;
-    -ms-overflow-style: none;
-}
-
-#bio::-webkit-scrollbar {
-    display: none;
-}
-
-.links {                                /* links in right block */
-    background-color: #6a94ab;
-    color: #DBF1F4;
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-.links:hover {                          /* hover links */
-    background-color: #6a94ab;
-    color: #ffffff;
-    transition: 0.4s;
-}
-
-/* ----------------------------------------------------------------------- */
-/* ------------------------------- credits ------------------------------- */
-
-#credit {
-    color: #ffffff;
-    bottom: 0;
-    display: inline;
-    font-style: italic;
-    margin: 10px;
-    position: fixed;
-    right: 0;
-}
-
-#credit:hover {
-    color: #cbc7db;
-    transition: 0.4s;
-}
-
-/* ----------------------------------------------------------------------- */
-    
+  
 </style>
-    
 </head>
 
 <body>
 
-<!--------------------------- START MAIN CONTENT---------------------------->
+<div class="desktop">
 
-<div id="container">
+<div class="window">
 
-    <!-- header image -->
-
-    <img id="header" src="https://xatimg.com/image/eTNewG5fF53O.gif">
-    
-    <!-- main title -->
-    
-    <h1>ʚ Chai ɞ</h1>
-    
-    <!-- icon image -->
-    
-    <a href="/">
-        <img id="picture" title="{cry baby}" src="https://xatimg.com/image/Fp56bT1Hc2IM.jpg">
-    </a>
-    
-    <!-- START CONTENT -->
-    
-    <div id="content">
-    
-        <!-- start left block -->
-    
-        <div id="leftblock">
-            
-            <!-- left block title -->
-            
-            <h2>✧ magical girl at heart。</h2>
-            
-            <!-- start left content -->
-        
-            <div class="borderblock">
-                
-                <!-- left column -->
-                
-                <div id="left">
-                    name
-                    <br>
-                    birthday
-                    <br>
-                    gender
-                    <br>
-                    pronouns
-                    <br>
-                    curently
-                    <br>
-                    zodiac
-                </div>
-                
-                <!-- right column -->
-                
-                <div id="right">
-                    chai
-                    <br>
-                    8/16
-                    <br>
-                    female
-                    <br>
-                    she/her
-                    <br>
-                    not interested
-                    <br>
-                    leo
-                </div>
-                
-                <!-- bio -->
-                
-                <div id="bio">
-
-Love sounds better written in a shoujo manga. Being online is a drag.
-
-                </div>
-                
-            </div>
-            
-            <!-- end left content -->
-        
-        </div>
-        
-        <!-- end left block -->
-        
-        <!-- start color block -->
-        
-        <div id="aesthetic">
-            
-            <div class="colors" id="color1"></div>
-            <div class="colors" id="color2"></div>
-            <div class="colors" id="color3"></div>
-            <div class="colors" id="color4"></div>
-            
-        </div>
-        
-        <!-- end color block -->
-        
-        <!-- start right block -->
-        
-        <div id="rightblock">
-        
-            <!-- right block title -->
-            
-            <h2>  .•°♡°•.</h2>
-            
-            <!-- start right content -->
-            
-            <div class="borderblock">
-                
-                <a href="" title="in the">
-                    <div class="links">
-                        fighting
-                    </div>
-                </a>
-                
-                <a href="" title="name of the">
-                    <div class="links">
-                        evil by
-                    </div>
-                </a>
-                
-                <a href="" title="moon!">
-                    <div class="links">
-                        moonlight
-                    </div>
-                </a>
-                
-                <a href="https://xat.me/Isaac" title="Isaac">
-                    <div class="links">
-                        winning love ♡ 
-                    </div>
-                </a>
-                
-                <a href="https://xat.me/Ecchi" title="Nana">
-                    <div class="links">
-                          by daylight ☼
-                    </div>
-                </a>
-                
-                <a href="https://xat.me/xRaidSendo" title="Raid">
-                    <div class="links">
-                        NEVER running from
-                    </div>
-                </a>
-                
-                <a href="https://xat.me/UnidentifiedAsh" title="Ash">
-                    <div class="links">
-                         a real fight!
-                    </div>
-                </a>
-                
-                <a href="https://xat.com/ecchi" title=" ପ૮{˶• ༝ •˶}აଓ">
-                    <div class="links">
-                        she is the one
-                    </div>
-                </a>
-                
-                <a href="" title="୨୧° ♡ °୨୧">
-                    <div class="links">
-                          𓆩♡𓆪 Sailormoon!
-                    </div>
-                </a>
-                
-                <a href="" title="˗ˋˏ°•୨❤୧•°ˎˊ˗">
-                    <div class="links">
-                           ପ(๑•ᴗ•๑)ଓ ♡
-                    </div>
-                </a>
-                
-                <a href="" title="(๑>؂•̀๑)">
-                    <div class="links">
-                        ⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙⋆♡
-                 </div>
-                 </a>
-            </div>
-            
-            <!-- end right content -->
-            
-        </div>
-        
-        <!-- end right block -->
-    
-    </div>
-    
-    <!-- END CONTENT -->
-    
+<div class="titlebar">
+<div class="buttons">
+<div class="btn red"></div>
+<div class="btn yellow"></div>
+<div class="btn green"></div>
+</div>
+<div class="title">About Me</div>
 </div>
 
-<!---------------------------- END MAIN CONTENT----------------------------->
+<div class="content">
 
-<!-- don't edit beyond this point please! colors can be modified in <style> -->
+<div class="sidebar">
 
-<a id="credit" target="blank" href="https://nuclearthemes.tumblr.com/">
-    page theme by bones.
+<h3>୨୧ Friends List</h3>
+
+<a href="about.html">
+<img src="https://xatimg.com/image/EFdStRe7EuII.jpg" alt="Friend icon">
+My lover
 </a>
 
-<script src="https://unpkg.com/popper.js@1"></script>
-<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+<a href="projects.html">
+<img src="https://xatimg.com/image/kIYYbRaGvDEA.jpg" alt="Friend icon">
+Nanana
+</a>
 
-<script>
-    tippy('[title]', {
-        theme: 'custom',
-        arrow: false,
-        delay: [200, 0],
-        zIndex: 9999999999,
-        maxWidth: 300,
+<a href="interests.html">
+<img src="https://xatimg.com/image/w6sg1q9hXEtb.jpg" alt="Friend icon">
+Goofball
+</a>
 
-        content(reference) {
-            const title = reference.getAttribute('title');
-            reference.removeAttribute('title');
-            return title;
-        },
-    });
-</script>
+<a href="contact.html">
+<img src="https://xatimg.com/image/qXZeId8CaLvc.gif">
+Home
+</a>
+
+</div>
+
+<div class="main">
+    
+<div class="profile">
+<img src="https://xatimg.com/image/HwzwD3BVZpCs.jpg" alt="Profile picture">
+
+<div>
+<h1 class="name">Chaii</h1>
+  <div class="online">
+<div class="statusdot"></div>
+Online Now
+</div>
+<p class="abouttext" id="typing"></p>
+
+</div>
+</div>
+
+<p class="abouttext">
+
+  </p>
+
+</div>
+
+</div>
+
+<div class="footer">
+xoxo
+</div>
+
+</div>
+
+</div>
 
 </body>
+  <script>
 
+const text = " leo - female - single - chicago,il";
+
+let i = 0;
+const speed = 40;
+
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
+
+</script>
 </html>
